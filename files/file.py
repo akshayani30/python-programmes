@@ -1,0 +1,6 @@
+f=open("ak.txt","w")
+f.write("hello well come!\n")
+f.writelines("this is my first programme\nhello bava i love you")
+f=open("ak.txt","r")
+print(f.read())
+f.close()
