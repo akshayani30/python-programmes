@@ -6,3 +6,4 @@ def fact_num(n):
     print(fact)
 
 fact_num(5)
+print(fact_num)
