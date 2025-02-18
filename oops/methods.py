@@ -1,5 +1,7 @@
 class student:
     college_name="mallareddy"
+    print(college_name)
+
 
     def __init__(self,name,marks):
         self.name=name
@@ -16,5 +18,6 @@ s1.welcome()
 print("marks:",s1.get_marks())
 s2.welcome()
 print("marks:",s2.get_marks())
+
 
 
