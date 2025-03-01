@@ -9,3 +9,4 @@ print(s1.peru,s1.marks)                #s1 and s2 are objects of student class
 
 s2=student("suman",100)
 print(s2.peru,s2.marks)
+print(s1.peru,s1.marks)

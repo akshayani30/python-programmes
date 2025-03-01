@@ -4,4 +4,5 @@ def avg_num(a,b,c):
     # print(avg)
     return avg
 
-print(avg_num(1,2,3))
+(avg_num(1,2,3))
+print(type(avg_num))

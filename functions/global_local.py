@@ -17,6 +17,7 @@ def something():
     global x  #here converting local to global x 
     x=15
     print("in func:",b)
-something()
+ak=something()
 print("out func:",b)
 print(x)
+print(type(ak))

@@ -6,6 +6,7 @@ class student:
     def __init__(self,name,marks):
         self.name=name
         self.mark=marks
+    
     def welcome(self):
         print("welcome",self.name)
     def get_marks(self):
@@ -18,6 +19,8 @@ s1.welcome()
 print("marks:",s1.get_marks())
 s2.welcome()
 print("marks:",s2.get_marks())
+
+
 
 
 
