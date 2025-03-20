@@ -1,8 +1,8 @@
-class ciecularqueue:
-    def __init__(self,size)
+class Circularqueue:
+    def __init__(self,size):
         self.maxsize=size
         self.queueArray=[0]*size
-        self.frot=-1
+        self.front=-1
         self.rear=-1
     def enqueue(self,item):
         if self.isEmpty():
@@ -21,6 +21,7 @@ class ciecularqueue:
         item=-1 
         if not self.isEmpty():
             item=self.queueArray[self.front]
+            self.queueArray[self.front]=None
             if self.front == self.rear:
                 self.front=-1
                 self.rear=-1
@@ -38,4 +39,20 @@ class ciecularqueue:
             print("queue is empty. No peek value.")
             return -1
     def isEmpty(self):
-        return self.front==-1 and self.rear ==-1        
+        return self.front==-1 and self.rear ==-1    
+    
+circular_queue=Circularqueue(5)
+circular_queue.enqueue(1)
+circular_queue.enqueue(2)
+circular_queue.enqueue(3)
+circular_queue.enqueue(4)
+circular_queue.enqueue(5)
+circular_queue.enqueue(1)
+print(circular_queue.queueArray)
+
+print("peek:",circular_queue.peek())
+circular_queue.dequeue()
+print(circular_queue.queueArray)
+
+
+        
