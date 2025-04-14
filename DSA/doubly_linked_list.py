@@ -61,41 +61,23 @@ def del_at_end(head):
     return head
 def del_at_pos(head,pos):
     current=head
-    count=0
+    count=1
     if pos==0:
         return del_at_beg(head)
-    while current:
+    while current.next:
         if count==pos:
-            if current.prev:
-                current.prev.next=current.next
-            if current.next:
-                current.next.prev=current.prev
-                current.prev.next=current.next
-            del current
+            if current.next.next== None:  
+                return del_at_end(head)
+            current.next.next.prev=current
+            current.next=current.next.next
+                
+            
             return head
         count+=1
         current=current.next
        
     print("invalid position")
     return head
-
-
-    # while count != pos:
-    #     if current.next == None:      
-    #         print("invaid")
-    #         return head
-    #     old_curr=current
-    #     current=current.next   
-    #     if count == pos:  
-    #         old_curr.next=None
-    #         del current
-    #         return head
-    #     count +=1
-    # temp=current.next
-    # current.next=current.next.next
-    # del temp
-    # return head
-    
 
 def traverse(head):
     current=head
@@ -108,10 +90,10 @@ head=insert_at_beg(3)
 head=insert_at_beg(2)
 head=insert_at_beg(1)
 head=insert_at_end(4)
-#head=insert_at_pos(4,0)
+head=insert_at_pos(4,0)
 traverse(head)
-#head=del_at_beg(head)
-#head=del_at_end(head)
+head=del_at_beg(head)
+head=del_at_end(head)
 head=del_at_pos(head,3)
 traverse(head)
 
