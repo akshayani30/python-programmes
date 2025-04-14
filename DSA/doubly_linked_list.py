@@ -25,10 +25,20 @@ def insert_at_pos(pos,data):
     current=head
     count=1
     if pos==0:
-        insert_at_beg(data)
-        return new_node
-    elif count==pos-1:
-        current=current.next
+        return insert_at_beg(data)
+    while count != pos:
+        if current.next == None:      #count=1,2,3,4   curr=1,2,3,4
+            print("invaid")
+            return head
+        current=current.next   
+        
+        if count == pos-1:    
+            new_node.next=None
+            new_node.prev=current
+            current.next=new_node
+            print("entered in if")
+            return head
+        
         count +=1
     new_node.next=current.next
     
@@ -43,10 +53,49 @@ def del_at_beg(head):
     return head
 def del_at_end(head):
     temp=head
-    while temp.next != 0:
+    while temp.next != None:
+        old_temp=temp
         temp=temp.next
+    old_temp.next=None
     del temp
     return head
+def del_at_pos(head,pos):
+    current=head
+    count=0
+    if pos==0:
+        return del_at_beg(head)
+    while current:
+        if count==pos:
+            if current.prev:
+                current.prev.next=current.next
+            if current.next:
+                current.next.prev=current.prev
+                current.prev.next=current.next
+            del current
+            return head
+        count+=1
+        current=current.next
+       
+    print("invalid position")
+    return head
+
+
+    # while count != pos:
+    #     if current.next == None:      
+    #         print("invaid")
+    #         return head
+    #     old_curr=current
+    #     current=current.next   
+    #     if count == pos:  
+    #         old_curr.next=None
+    #         del current
+    #         return head
+    #     count +=1
+    # temp=current.next
+    # current.next=current.next.next
+    # del temp
+    # return head
+    
 
 def traverse(head):
     current=head
@@ -54,14 +103,15 @@ def traverse(head):
         print(current.data,end= " <-> ")
         current=current.next
     print(" None")
-
 head=None
 head=insert_at_beg(3)
 head=insert_at_beg(2)
 head=insert_at_beg(1)
 head=insert_at_end(4)
-head=insert_at_pos(0,0)
-head=del_at_beg(head)
-head=del_at_end(head)
+#head=insert_at_pos(4,0)
 traverse(head)
-print(head.data)
+#head=del_at_beg(head)
+#head=del_at_end(head)
+head=del_at_pos(head,3)
+traverse(head)
+
