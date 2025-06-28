@@ -28,7 +28,7 @@ class queue:
         queue_ele=[]
         while current:
             queue_ele.append(str(current.data))
-            current=current.next
+            current=current.next    
         print("queue :"+"->".join(queue_ele))
 a_queue=queue()
 while True:

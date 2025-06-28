@@ -48,7 +48,7 @@ def insert_at_pos(pos,data):
     return head
 def del_at_beg(head):
     temp=head
-    head=head.next
+    head=head.next    
     del temp
     return head
 def del_at_end(head):

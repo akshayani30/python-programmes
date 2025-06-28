@@ -5,6 +5,7 @@ class Node:
 def insert_at_beginning(head,data):
     new_node=Node(data)
     new_node.next=head
+    
     return new_node
 def traverse(head):
     current=head
