@@ -80,14 +80,15 @@ def del_at_pos(head,pos):
 
 
 head=None
-#head=insert_at_beginning(head,4)
+head=insert_at_beginning(head,4)
 # head=insert_at_beginning(head,5)
 # insert_at_end(head,3)
 # insert_at_end(head,1)
-# insert_at_pos(head,3,2)
+head=insert_at_pos(head,0,2)
+head=insert_at_pos(head,1,2)
 # head=del_at_beg(head)
 # del_at_end(head)
-head=del_at_pos(head,0)
+#head=del_at_pos(head,0)
 traverse(head)
 
 

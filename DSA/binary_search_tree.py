@@ -35,7 +35,7 @@ class Binary_search:
                 return temp
             #case 2:Node has no right child
             elif root.right is None:
-                temp=root.right
+                temp=root.left
                 root=None
                 return temp
             #case 3: Node has two children
