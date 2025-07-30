@@ -12,15 +12,15 @@ class Graph:
             print(f"vertex '{vertex}' added.")
         else:
             print(f"vertex '{vertex}' already exit")
-    def add_edge(self,u,v): #before addedge check two vertex are there are not
+    def add_edge(self,u,v,wt): #before addedge check two vertex are there are not
         self.add_vertex(u)
         self.add_vertex(v)
-        if v  not in self.adj[u]:
-            self.adj[u].append(v)
+        if [v,wt] not in self.adj[u]:
+            self.adj[u].append([v,wt])
             print(f"edge added:{u}->{v}")
         if not self.directed:
-            if u not in self.adj[v]:
-                self.adj[v].append(u)
+            if [u,wt] not in self.adj[v]:
+                self.adj[v].append([u,wt])
                 print(f"edge added:{u}<-{v}")
     def display(self):
         if not self.vertices:
@@ -44,20 +44,20 @@ class Graph:
                 continue
             self.adj[i][:]=[neighbor for neighbor in self.adj[i] if neighbor != vertex]
         print(f"vertex {vertex} and its edges removed")
-    def remove_edge(self,u,v):
+    def remove_edge(self,u,v,wt):
         if u not in self.vertices or v not in self.vertices:
-            print(f"cannot remove edge:vertex {u} and {v} ccannot find")
+            print(f"cannot remove edge:vertex {u} and {v} cannot find")
             return
         edge_removed=False
-        if v in self.adj[u]:
-            self.adj[u].remove(v)
+        if [v,wt] in self.adj[u]:
+            self.adj[u].remove([v,wt])
             print(f"edge removd:{u} --> {v}")
             edge_removed=True
         else:
             print(f"edge {u} --> {v} not found.")
         if not self.directed:
-            if u in self.adj[v]:
-                self.adj[v].remove(u)
+            if [u,wt] in self.adj[v]:
+                self.adj[v].remove([u,wt])
                 print(f" edge removed:{v} and {u} for undirected")
                 edge_removed=True
             elif edge_removed:
@@ -68,13 +68,11 @@ class Graph:
 
 
 my_graph=Graph(False)
-my_graph.add_edge(0,1)
-my_graph.add_edge(2,1)
+my_graph.add_edge(0,1,10)
+my_graph.add_edge(2,1,20)
 my_graph.add_vertex(4)
 
 my_graph.display()
 my_graph.remove_vertex(2)
-#my_graph.remove_edge(1,0)
+my_graph.remove_edge(1,0,10)
 my_graph.display()
-
-        
