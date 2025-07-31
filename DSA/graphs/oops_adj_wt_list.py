@@ -42,7 +42,7 @@ class Graph:
         for i in range(len(self.vertices)):
             if i == vertex:
                 continue
-            self.adj[i][:]=[neighbor for neighbor in self.adj[i] if neighbor != vertex]
+            self.adj[i][:]=[[neighbor,wt] for neighbor,wt in self.adj[i] if neighbor != vertex]
         print(f"vertex {vertex} and its edges removed")
     def remove_edge(self,u,v,wt):
         if u not in self.vertices or v not in self.vertices:
@@ -69,8 +69,15 @@ class Graph:
 
 my_graph=Graph(False)
 my_graph.add_edge(0,1,10)
-my_graph.add_edge(2,1,20)
-my_graph.add_vertex(4)
+my_graph.add_edge(2,0,20)
+my_graph.add_edge(1,3,20)
+my_graph.add_edge(2,3,40)
+my_graph.add_edge(1,4,50)
+my_graph.add_edge(3,4,70)
+my_graph.add_edge(4,5,90)
+
+
+my_graph.add_vertex(6)
 
 my_graph.display()
 my_graph.remove_vertex(2)
